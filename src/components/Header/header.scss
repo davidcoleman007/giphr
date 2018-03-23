@@ -1,0 +1,42 @@
+.app-header {
+  .title {
+    img {
+      margin-left  : 20px;
+      margin-right : 20px;
+    
+      height       : 50px;
+      width        : 79px;
+    }
+    h1 {
+      flex-grow : 1;
+      font-size: 1.5em;
+    }
+    display          : flex;
+    padding          : 10px 0 0;
+    height           : 50px;
+  }
+  .search {
+    .query-input {
+      margin-left  : 48px;
+      margin-right : 5px;
+      height       : 30px;
+      width        : 300px;
+    }
+    img {
+      margin-left : 5px;
+      border      : 1px solid #FFF;
+      cursor      : pointer;
+    }
+    align-items     : center;
+    display         : flex;
+    justify-content : center;
+    
+    padding         : 10px 0 10px;
+    
+    height          : 50px;
+    width           : 100%;
+  }
+  background-color : #222;
+  color            : white;
+  width            : 100%
+}
