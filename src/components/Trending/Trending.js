@@ -15,19 +15,22 @@ export class Trending extends Component {
   render() {
     const {trending} = this.props;
     return (
-      <ul className="trending">{
-        trending.map(
-          (gif) => {
-            return (
-              <li>
-                <img alt={gif.slug}
-                    src={gif.images.fixed_height_small.url}
-                />
-              </li>
-            )
-          }
-        )
-      }</ul>
+      <section className="trending">
+        <h1>#trending:</h1>
+        <ul>{
+          trending.map(
+            (gif, idx) => {
+              return (
+                <li key={`trending_${idx}`}>
+                  <img alt={gif.slug}
+                      src={gif.images.fixed_height_small.url}
+                  />
+                </li>
+              )
+            }
+          )
+        }</ul>
+      </section>
     );
   }
 }

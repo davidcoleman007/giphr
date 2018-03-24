@@ -7,11 +7,12 @@ import {
 import {
   setGifs,
   setMoarGifs,
-  setTrending
+  setTrending,
 } from '../actions/results';
 
 import {
   saveSearchQuery,
+  setCurrentQuery,
 } from '../actions/search';
 
 export const getTrending = () => {
@@ -21,7 +22,6 @@ export const getTrending = () => {
         console.log(res);
         res.json().then(
           (data) => {
-            console.log(data);
             dispatch(setTrending(data.data));
           }
         );
@@ -31,14 +31,21 @@ export const getTrending = () => {
 };
 
 export const search = (query) => {
-  return (dispatch) => {
-    dispatch(saveSearchQuery(query))
+  return (dispatch, getState) => {
     return searchGifs(query).then(
       (res) => {
-        console.log(res);
         res.json().then(
           (data) => {
-            console.log(data);
+            const state = getState();
+            const matches = state.search.history.find(
+              (item) => {
+                return (item.query === query);
+              }
+            );
+            if(!matches) {
+              dispatch(saveSearchQuery(query,data.data[0]))
+            }
+            dispatch(setCurrentQuery(query));
             dispatch(setGifs(data.data));
           }
         );
@@ -51,10 +58,8 @@ export const getMoar = (query, iHazHowMany) => {
   return (dispatch) => {
     return getMoarGifs(query, iHazHowMany).then(
       (res) => {
-        console.log(res);
         res.json().then(
           (data) => {
-            console.log(data);
             dispatch(setMoarGifs(data.data));
           }
         );

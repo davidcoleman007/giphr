@@ -1,12 +1,18 @@
-.results {
-  li {
-    padding         : 20px;
-    list-style-type : none;
-    margin          : 10px;
+section.results {
+  h1 {
+    font-size: 72px;
   }
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  ul.list {
+    li {
+      padding         : 20px;
+      list-style-type : none;
+      margin          : 10px;
+      width           : 200px;
+    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
-  margin: 0 auto;
+    margin: 0 auto;
+  }
 }

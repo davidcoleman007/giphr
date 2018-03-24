@@ -3,8 +3,11 @@ import autoBind from 'auto-bind';
 
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
+import Avatar from 'material-ui/Avatar';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import IconButton from 'material-ui/IconButton';
+import {List, ListItem} from 'material-ui/List';
+
 
 export class HistoryDrawer extends Component {
   static defaultProps = {
@@ -21,7 +24,19 @@ export class HistoryDrawer extends Component {
     toggleHistory();
   }
 
+  onItemClick(item) {
+    const {
+      search,
+      toggleHistory
+    } = this.props;
+    return () => {
+      search(item.query);
+      toggleHistory();
+    }
+  }
+
   render() {
+    const {history} = this.props;
     return (
       <Drawer docked={false}
           onRequestChange={this.onRequestChange}
@@ -36,6 +51,20 @@ export class HistoryDrawer extends Component {
               </IconButton>
             }
         />
+        <List>
+            {history.map(
+              (item, idx) => {
+                return (
+                  <ListItem
+                      key={`history_${idx}`}
+                      leftAvatar={<Avatar src={item.gif.images.fixed_width_small.url} />}
+                      onClick={this.onItemClick(item)}
+                      primaryText={item.query}
+                  />
+                );
+              }
+            )}
+        </List>
       </Drawer>
     );
   }

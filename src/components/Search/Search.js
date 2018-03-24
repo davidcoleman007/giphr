@@ -46,7 +46,7 @@ export class Search extends Component {
         <input className="query-input"
             onChange={this.onSearchChange}
             onKeyDown={this.onKeyDown}
-            placeholder="Enter something to giph it!"
+            placeholder="Get Giphy wit it!"
             value={query}
         />
         <img alt="search"

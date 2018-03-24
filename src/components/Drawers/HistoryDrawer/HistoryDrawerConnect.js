@@ -5,15 +5,19 @@ import { HistoryDrawer as Component } from './HistoryDrawer';
 
 import { toggleHistory } from '../../../actions/drawers';
 
+import { search } from '../../../thunks/giphy';
+
 const mapStateToProps = (state, ownProps) => {
   return {
-    open: state.drawers.history.open
+    open    : state.drawers.history.open,
+    history : state.search.history,
   }
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     ...bindActionCreators({
+      search,
       toggleHistory
     }, dispatch)
   };

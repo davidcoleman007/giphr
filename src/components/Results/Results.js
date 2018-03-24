@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import autoBind from 'auto-bind';
 
+import tenor from './tenor-cropped-trans-sm.gif';
+
 import './Results.scss';
 
 const bgColors = [
@@ -47,24 +49,37 @@ export class Results extends Component {
   }
 
   render() {
-    const {results} = this.props;
+    const {query,results} = this.props;
+    const flipImageStyle = {
+      transform:'scaleX(-1)'
+    };
+
     return (
-      <ul id="results" className="results">{
-        results.map(
-          (gif) => {
-            const itemStyle = {
-              backgroundColor: bgColors[(Math.random()*bgColors.length)>>0]
-            };
-            return (
-              <li style={itemStyle}>
-                <img alt={gif.slug}
-                    src={gif.images.fixed_width.url}
-                />
-              </li>
-            )
-          }
-        )
-      }</ul>
+      <section className="results">
+        {query &&
+          <h1>
+            <img src={tenor} alt="tenor"/>
+            {query}
+            <img src={tenor} style={flipImageStyle} alt="tenor"/>
+          </h1>
+        }
+        <ul id="results" className="list">{
+          results.map(
+            (gif, idx) => {
+              const itemStyle = {
+                backgroundColor: bgColors[(Math.random()*bgColors.length)>>0]
+              };
+              return (
+                <li style={itemStyle} key={`result_${idx}`}>
+                  <img alt={gif.slug}
+                      src={gif.images.fixed_width.url}
+                  />
+                </li>
+              )
+            }
+          )
+        }</ul>
+      </section>
     );
   }
 }
