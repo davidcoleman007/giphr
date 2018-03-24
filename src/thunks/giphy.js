@@ -3,7 +3,7 @@ import { setTrending } from '../actions/results';
 
 export const getTrending = () => {
   return (dispatch) => {
-    return getTrendingGifs(10).then(
+    return getTrendingGifs(5).then(
       (res) => {
         console.log(res);
         res.json().then(

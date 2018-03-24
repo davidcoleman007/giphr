@@ -1,0 +1,32 @@
+.search {
+  .query-input {
+    // account for the search button and the history button
+    // 48x2 + 10px margin-right
+    margin-left  : 106px;
+    margin-right : 5px;
+    height       : 45px;
+    flex-grow    : 1;
+    font-size    : 24px
+  }
+  img {
+    &:last-child {
+      margin-right: 10px;
+    }
+    margin-left : 5px;
+    border      : 3px outset #FFF;
+    cursor      : pointer;
+  }
+  p {
+    flex-grow: 0.75;
+  }
+  background-color: #222;
+  align-items     : center;
+  display         : flex;
+  justify-content : center;
+
+  margin          : 0 auto;
+  padding         : 10px 0 10px;
+
+  height          : 80px;
+  width           : 100%;
+}
