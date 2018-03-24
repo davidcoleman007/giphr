@@ -1,8 +1,8 @@
-export const NEW_SEARCH = 'NEW_SEARCH';
+export const SAVE_SEARCH_QUERY = 'SAVE_SEARCH_QUERY';
 
-export const newSearch = (query) => {
-    return {
-        type : NEW_SEARCH,
-        query
-    };
-};
+export const saveSearchQuery = (query) => {
+  return {
+    type : SAVE_SEARCH_QUERY,
+    query
+  }
+}

@@ -1,7 +1,14 @@
+import {SAVE_SEARCH_QUERY} from '../actions/search';
+
 export default (state = {
-  foo:'bar'
+  currentQuery : 'all the things'
 }, action) => {
   switch(action.type) {
+    case SAVE_SEARCH_QUERY:
+      return {
+        ...state,
+        currentQuery: action.query
+      }
     default:
       return state;
   }

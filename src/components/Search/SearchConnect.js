@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Search as Component } from './Search';
 
 import { toggleHistory } from '../../actions/drawers';
+import { search } from '../../thunks/giphy';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -14,7 +15,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     ...bindActionCreators({
-      toggleHistory
+      search,
+      toggleHistory,
     }, dispatch),
   };
 };

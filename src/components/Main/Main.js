@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { Trending } from '../Trending';
+import { Results } from '../Results';
 
 export class Main extends Component {
   render() {
     return (
-      <Trending />
+      <section>
+        <Trending />
+        <Results />
+      </section>
     )
   }
 }

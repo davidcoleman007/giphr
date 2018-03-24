@@ -10,10 +10,14 @@ export class Search extends Component {
   constructor(props) {
     super(props);
     autoBind(this);
+    this.state = {
+      query : ''
+    };
   }
 
   onClickSearch(event) {
-
+    const { search } = this.props;
+    search(this.state.query);
   }
 
   onClickHistory(event) {
@@ -21,11 +25,30 @@ export class Search extends Component {
     toggleHistory();
   }
 
+  onSearchChange(event) {
+    this.setState({
+      query: event.target.value
+    });
+  }
+
+  onKeyDown(event) {
+    if(event.keyCode === 13) {
+      event.preventDefault();
+      this.onClickSearch();
+    }
+  }
+
   render() {
+    const { query } = this.state;
     return (
       <div className="search">
         <p/>
-        <input className="query-input" placeholder="Enter something to giph it!"/>
+        <input className="query-input"
+            onChange={this.onSearchChange}
+            onKeyDown={this.onKeyDown}
+            placeholder="Enter something to giph it!"
+            value={query}
+        />
         <img alt="search"
             className="search-icon"
             onClick={this.onClickSearch}
