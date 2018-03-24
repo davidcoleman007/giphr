@@ -5,7 +5,7 @@ import search from './search-48x48.gif';
 
 import './header.scss';
 
-export default (props) => {
+export const Header = (props) => {
   return(
     <header className="app-header">
       <div className="title">
