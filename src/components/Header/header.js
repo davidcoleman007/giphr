@@ -2,7 +2,7 @@ import React from 'react';
 import StickyHeader from 'react-sticky-header';
 import { Search } from '../Search';
 
-import nyanCat from './nyan-cat-79x50.gif';
+import nyanCat from './assets/nyan-cat-79x50.gif';
 
 import 'react-sticky-header/styles.css';
 import './header.scss';
