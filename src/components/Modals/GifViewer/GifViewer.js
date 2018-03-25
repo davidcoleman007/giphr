@@ -51,9 +51,11 @@ export class GifViewer extends Component {
     if(!image) {
       const img = new Image();
       img.onload = () => {
-        this.setState({
-          image: <img src={url} alt={gif.slug}/>
-        });
+        if(this.props.open) {
+          this.setState({
+            image: <img src={url} alt={gif.slug}/>
+          });
+        }
       };
       img.src = url;
     }
