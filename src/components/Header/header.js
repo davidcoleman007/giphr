@@ -20,6 +20,7 @@ export const Header = (props) => {
             <Search />
           )}
           headerOnly
+          offset={80}
       />
     </header>
   );

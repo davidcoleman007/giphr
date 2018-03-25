@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import './Trending.scss';
+import { GifCard } from '../GifCard';
 
 export class Trending extends Component {
   static defaultProps = {
@@ -11,7 +12,12 @@ export class Trending extends Component {
     const {getTrending} = this.props;
     getTrending();
   }
-
+  onGifClick(gif) {
+    const { toggleGifViewer } = this.props;
+    return () => {
+      toggleGifViewer(gif);
+    }
+  }
   render() {
     const {trending} = this.props;
     return (
@@ -21,12 +27,12 @@ export class Trending extends Component {
           trending.map(
             (gif, idx) => {
               return (
-                <li key={`trending_${idx}`}>
-                  <img alt={gif.slug}
-                      src={gif.images.fixed_height_small.url}
-                  />
-                </li>
-              )
+                <GifCard gif={gif}
+                    key={`trending_${idx}`}
+                    onClick={this.onGifClick(gif)}
+                    type="fixed_height_small"
+                />
+              );
             }
           )
         }</ul>

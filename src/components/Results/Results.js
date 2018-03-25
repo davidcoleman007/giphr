@@ -1,21 +1,11 @@
 import React, {Component} from 'react';
 import autoBind from 'auto-bind';
 
+import { GifCard } from '../GifCard';
+
 import tenor from './tenor-cropped-trans-sm.gif';
 
 import './Results.scss';
-
-const bgColors = [
-  'antiqueWhite',
-  'aquamarine',
-  'Lavender',
-  'LightCoral',
-  'LightSalmon',
-  'OliveDrab',
-  'PaleVioletRed',
-  'Pink',
-  'Plum',
-];
 
 export class Results extends Component {
   static defaultProps = {
@@ -27,14 +17,24 @@ export class Results extends Component {
     autoBind(this);
   }
 
-  isBottom(el) {
-    return el.getBoundingClientRect().bottom <= window.innerHeight;
-  }
-
   componentDidMount() {
     document.addEventListener('scroll', this.trackScrolling);
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.trackScrolling);
+  }
+
+  isBottom(el) {
+    return el.getBoundingClientRect().bottom <= window.innerHeight;
+  }
+
+  onCardClick(gif) {
+    const { toggleGifViewer } = this.props;
+    return () => {
+      toggleGifViewer(gif);
+    }
+  }
   trackScrolling() {
     const { getMoarGifs, query, results:{length:numResults} } = this.props;
     const wrappedElement = document.getElementById('results');
@@ -43,10 +43,6 @@ export class Results extends Component {
       getMoarGifs(query,numResults);
     }
   };
-
-  componentWillUnmount() {
-    document.removeEventListener('scroll', this.trackScrolling);
-  }
 
   render() {
     const {query,results} = this.props;
@@ -66,16 +62,7 @@ export class Results extends Component {
         <ul id="results" className="list">{
           results.map(
             (gif, idx) => {
-              const itemStyle = {
-                backgroundColor: bgColors[(Math.random()*bgColors.length)>>0]
-              };
-              return (
-                <li style={itemStyle} key={`result_${idx}`}>
-                  <img alt={gif.slug}
-                      src={gif.images.fixed_width.url}
-                  />
-                </li>
-              )
+              return (<GifCard gif={gif} key={`result_${idx}`} onClick={this.onCardClick(gif)}/>);
             }
           )
         }</ul>

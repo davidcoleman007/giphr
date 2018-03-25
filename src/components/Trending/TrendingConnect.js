@@ -1,6 +1,8 @@
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 
+import { toggleGifViewer } from '../../actions/modals';
+
 import {getTrending} from '../../thunks/giphy';
 
 import { Trending as Component} from './Trending';
@@ -15,7 +17,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     ...bindActionCreators({
-        getTrending
+        getTrending,
+        toggleGifViewer,
       }, dispatch
     )
   }

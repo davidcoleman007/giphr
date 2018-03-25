@@ -1,6 +1,8 @@
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 
+import { toggleGifViewer } from '../../actions/modals';
+
 import {getMoar as getMoarGifs} from '../../thunks/giphy';
 
 import { Results as Component} from './Results';
@@ -15,7 +17,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     ...bindActionCreators({
-        getMoarGifs
+        getMoarGifs,
+        toggleGifViewer
       }, dispatch
     )
   }

@@ -4,12 +4,13 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
+import { Drawers } from './components/Drawers';
+import { GifViewerModal } from './components/Modals';
 import { Header } from './components/Header';
 import { Main } from './components/Main';
 
 
 import './App.scss';
-import { Drawers } from './components/Drawers';
 
 export default class App extends Component {
   render() {
@@ -19,6 +20,7 @@ export default class App extends Component {
           <Header />
           <Main />
           <Drawers />
+          <GifViewerModal />
         </div>
       </MuiThemeProvider>
     );
