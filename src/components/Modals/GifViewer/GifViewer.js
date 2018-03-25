@@ -4,6 +4,8 @@ import autoBind from 'react-autobind';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
+import loading from './assets/loading.gif';
+
 import './GifViewer.scss';
 
 export class GifViewer extends Component {
@@ -68,7 +70,8 @@ export class GifViewer extends Component {
         open={open}
         title={`${title} by ${username}`}
       >
-        {image}
+        {image && image}
+        {!image && <img src={loading} alt="loading"/>}
       </Dialog>
     )
   }
