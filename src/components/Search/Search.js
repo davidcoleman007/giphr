@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import autoBind from 'auto-bind';
 
-import search from './search-48x48.gif';
-import historyBurger from './history-burger.png';
+import search from './assets/search-48x48.gif';
+import historyBurger from './assets/history-burger.png';
 
 import './Search.scss';
 
