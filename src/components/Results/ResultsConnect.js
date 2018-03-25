@@ -1,11 +1,11 @@
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 
+import { Results as Component} from './Results';
+
 import { toggleGifViewer } from '../../actions/modals';
 
 import {getMoar as getMoarGifs} from '../../thunks/giphy';
-
-import { Results as Component} from './Results';
 
 const mapStateToProps = (state, ownProps) => {
   return {
