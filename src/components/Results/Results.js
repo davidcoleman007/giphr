@@ -3,7 +3,7 @@ import autoBind from 'auto-bind';
 
 import { GifCard } from '../GifCard';
 
-import tenor from './tenor-cropped-trans-sm.gif';
+import tenor from './assets/tenor-cropped-trans-sm.gif';
 
 import './Results.scss';
 
