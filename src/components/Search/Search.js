@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import autoBind from 'auto-bind';
+import autoBind from 'react-autobind';
 
 import search from './assets/search-48x48.gif';
 import historyBurger from './assets/history-burger.png';
