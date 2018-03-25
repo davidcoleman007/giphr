@@ -1,6 +1,7 @@
 .gif-viewer-dialog {
   h3 {
-    text-overflow: ellipsis;
+    text-overflow : ellipsis;
+    overflow      : hidden;
   }
   img {
     margin    : 0 auto;
